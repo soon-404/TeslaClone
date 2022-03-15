@@ -3,7 +3,7 @@ import {StyleSheet, Dimensions} from 'react-native';
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    zIndex: 100,
+    zIndex: 1,
     top: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -20,5 +20,6 @@ const styles = StyleSheet.create({
     height: 28,
     resizeMode: 'contain',
   },
+  touch: {},
 });
 export default styles;
