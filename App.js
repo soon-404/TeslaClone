@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import {StatusBar, StyleSheet, View, SafeAreaView} from 'react-native';
+import {StatusBar, StyleSheet, View} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 import CarList from './components/CarList';
 import Header from './components/Header';
@@ -7,28 +8,33 @@ import ModalPop from './components/ModalPop';
 const App = () => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.containerr}>
-        <ModalPop
-          modalVisible={modalVisible}
-          setModalVisible={setModalVisible}
-        />
-        <Header modalVisible={modalVisible} setModalVisible={setModalVisible} />
-        <CarList />
-        <StatusBar style="auto" />
-      </View>
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.containerSave}>
+        <View style={styles.containerView}>
+          <ModalPop
+            modalVisible={modalVisible}
+            setModalVisible={setModalVisible}
+          />
+          <Header
+            modalVisible={modalVisible}
+            setModalVisible={setModalVisible}
+          />
+          <CarList />
+          {/* <StatusBar style="auto" /> */}
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  containerSave: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: 'rr#fff',
     alignItems: 'center',
   },
-  containerr: {
+  containerView: {
     width: '100%',
     height: '100%',
     justifyContent: 'center',

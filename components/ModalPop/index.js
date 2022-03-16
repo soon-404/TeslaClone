@@ -1,10 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Text, View, Image, Modal, Pressable} from 'react-native';
 
 import styles from './styles';
 
 const ModalPop = props => {
-  // const [modalVisible, setModalVisible] = useState(true);
   const {modalVisible, setModalVisible} = props;
   return (
     <Modal

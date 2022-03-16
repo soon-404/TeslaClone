@@ -1,13 +1,23 @@
 import React from 'react';
-import {Text, View, ImageBackground} from 'react-native';
-
+import {Text, View, ImageBackground, Dimensions, StatusBar} from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import styles from './styles';
 import StyledButton from '../StyledButton';
 
 const CarItem = props => {
   const {name, tagline, taglineCTA, image} = props.car;
+  const insets = useSafeAreaInsets();
+
   return (
-    <View style={styles.carContainer}>
+    <View
+      style={{
+        width: Dimensions.get('window').width,
+        height:
+          Dimensions.get('screen').height -
+          insets.bottom -
+          StatusBar.currentHeight -
+          insets.top,
+      }}>
       <ImageBackground source={image} style={styles.image} />
 
       <View style={styles.titles}>
